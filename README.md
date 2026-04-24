@@ -12,7 +12,7 @@ If you're learning C too, you might find this structure useful.
 
 🧠 Learning Approach
 
-I’m working through these exercises at my own pace — no rush, no pressure.
+I’m working through these exercises at my own pace no rush, no pressure.
 
 To keep things structured and motivating, I’ve divided the journey into “seasons”, each containing a set of exercises aimed at building specific skills step by step.
 
