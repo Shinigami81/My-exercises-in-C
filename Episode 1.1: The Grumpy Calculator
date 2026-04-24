@@ -1,0 +1,65 @@
+//Episode 1.1: The Grumpy Calculator
+//Assignment: Write a program that asks the user for two integers and an operator (+, -, *, /). Use scanf to read the input and switch to perform the operation.
+//Corporate bonus: If the user tries to divide by 0, don’t let the program crash. Print an error message in red (you can use printf with ANSI escape codes for color — not required, but it looks cool).
+//Learning objective: scanf, printf, switch, basic error handling.
+
+#include <stdio.h>
+#include <stdlib.h> 
+
+int calculation(int x, int y, int z);
+
+int main(){
+    int x;
+    int y;
+    int z;
+    printf("Dear User please, insert the first integer number:\n");
+    scanf("%d", &x);
+    printf("Dear User please, insert the second integer Number:\n");
+    scanf("%d", &y);
+    printf("Dear user, please choose one of the following operator and type the relative number to insert it:\n 1)+\n 2)-\n 3)*\n 4)/\n");
+    scanf("%d", &z);
+    while (z<1 || z>4)
+    {
+        printf("\x1B[31mplease insert a valid operation number!\x1B[0m\n");
+        printf("Dear user, please choose one of the following operator and type the relative number to insert it:\n 1)+\n 2)-\n 3)*\n 4)/\n");
+        scanf("%d", &z);
+    }
+    while (y==0 && z==4)
+    {
+        printf("\x1B[31mThe calculator doesn't accept the 0 as dividend, please choose another number.\x1B[0m\n");
+        printf("Dear User please, insert the second integer Number:\n");
+        scanf("%d", &y);
+        printf("Dear user, please choose one of the following operator and type the relative number to insert it:\n 1)+\n 2)-\n 3)*\n 4)/\n");
+        scanf("%d", &z);
+    }
+    calculation(x, y ,z);
+}
+
+int calculation(int x, int y, int z){
+    switch(z){
+        case 1:{
+        int somma= x+y;
+        printf("The result is: %d\n",somma);
+        break;
+        }
+        case 2:{
+        int sott= x-y;
+        printf("The result is: %d\n",sott);
+        break;
+        }
+        case 3:{
+        int mol= x*y;
+        printf("The result is: %d\n",mol);
+        break;
+        }
+        case 4:{
+        int div= x/y;
+	    printf("The result is: %d\n",div);
+	    break;
+        }
+	    default:{
+        printf("Error: please insert a valid value\n");
+        }
+        }
+
+}
