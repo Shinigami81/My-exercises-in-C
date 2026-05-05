@@ -1,0 +1,25 @@
+//Episode 1.2: The Mystery of Memory
+//Assignment:
+//Task: Declare an int x = 10;. Declare a pointer int *p = &x;.
+//Print the value of x.
+//Print the address of x (use %p).
+//Print the value stored in p (the address).
+//Print the value pointed to by p (use *p).
+//Modify x using *p = 20;. Print x to verify.
+//Learning objective: Understand concretely what & and * represent.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    int x=10;
+    int * p= &x;
+    printf("The value of x is:%d\n", x); // this prints the value of x directly
+    printf("The memory address of x is:%p\n", p);// this prints the memory address where x is stored using the pointer
+    printf("The value stored in P is %d\n: ", *p);// this prints the value of x through its pointer
+    printf("The memory address of P is: %p\n", &p);// this prints the memory address where the pointer itself is stored
+    printf("The value pointed to by P is: %d\n", *p);// this prints the content pointed by p, which is equal to x since p points to it.
+    *p = 20; // Modify the value of x through its address (pointer)
+    printf("The value of x has been modified using *p and now it is: %d\n", *p); // shows that x has changed by modifying it through the pointer.
+    return 0;
+}
