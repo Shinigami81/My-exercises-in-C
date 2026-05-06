@@ -1,0 +1,56 @@
+//Episode 1.3: The String Handler (Homemade)
+//Now that you know what a pointer is, you have to face a rite of passage. Strings in C are arrays of char terminated by \0. The functions in the string.h library (strlen, strcpy, etc.) do nothing more than walk with a pointer until they find that blessed \0.
+//
+//The Assignment:
+//You are not allowed to include string.h. You must write two functions yourself:
+//
+//int mia_strlen(char *s) — It must count the characters up to the \0 terminator and return the length.
+//
+//void mia_strcpy(char *dest, char *src) — It must copy the string src into dest, character by character, including \0.
+//
+//In main:
+//
+//Declare a test string: char frase[] = "Hello Kernel";
+//
+//Use mia_strlen to calculate its length and print it.
+//
+//Declare a second array char copia[50]; and use mia_strcpy to copy frase into copia. Print copia to verify.
+//
+//Why You Are Doing This
+//When you send a syscall, the kernel expects a pointer to a buffer of bytes. Understanding how to iterate through an array with a pointer (s++) without going out of bounds is exactly what the kernel does when it receives your data. Handwritten strcpy is the first step to avoiding buffer overflows.
+
+
+#include <stdlib.h>
+#include <stdio.h>
+
+
+int mia_strlen(char *s);
+void mia_strcpy(char *dest, char *src);
+
+int mia_strlen(char *s){
+    int count=0;
+    while (s[count] != '\0')
+    {
+        count++;
+    }
+    return count;
+}
+
+void mia_strcpy(char *dest, char *src){
+    int count1=0;
+    while (src[count1] != '\0')
+    {
+        dest[count1] = src[count1];
+        count1++;
+    }
+    dest[count1] = '\0';
+
+}
+
+int main(){
+    char message[]="ciao kernel";
+    char Cmessage[50];
+    printf("la lunghezza è:%d\n", mia_strlen(message));
+    mia_strcpy(Cmessage, message);
+    printf("La copie è: %s\ne l'originale è: %s\n", Cmessage, message);
+}
